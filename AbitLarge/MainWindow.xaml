@@ -1,0 +1,211 @@
+﻿<Window x:Class="AbitLarge.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AbitLarge"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1030.028" Width="1681.361">
+    <Grid>
+        <Button Name ="CoinMarket_Tick" Content="CoinMarket Ticker" HorizontalAlignment="Left" Margin="1332,484,0,0" VerticalAlignment="Top" Width="205" Click="CoinMarket_Tick_Click"/>
+        <ListView Name ="MainListView" HorizontalAlignment="Left" Height="477" VerticalAlignment="Top" Width="1537">
+            <ListView.View>
+                <GridView x:Name="MarketGrid">
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ComboBox Name="currency_comboBox" SelectedIndex="3" SelectionChanged="currency_comboBox_SelectionChanged" HorizontalAlignment="Left" Margin="1537,484,0,0" VerticalAlignment="Top" Width="114" Height="20">
+            <ComboBoxItem Content="GBP"></ComboBoxItem>
+            <ComboBoxItem Content="EUR"></ComboBoxItem>
+            <ComboBoxItem Content="KRW"></ComboBoxItem>
+            <ComboBoxItem Content="USD"></ComboBoxItem>
+        </ComboBox>
+        <TextBox Name="BithumbAPI" HorizontalAlignment="Left" Height="23" Margin="10,504,0,0" TextWrapping="Wrap" Text="빗썸 API키" VerticalAlignment="Top" Width="377"/>
+        <TextBox Name="BithumbSecret" HorizontalAlignment="Left" Height="23" Margin="10,532,0,0" TextWrapping="Wrap" Text="빗썸 시크릿 키" VerticalAlignment="Top" Width="377"/>
+        <TextBox Name="BittrexAPI" HorizontalAlignment="Left" Height="23" Margin="10,732,0,0" TextWrapping="Wrap" Text="비트렉스 API키" VerticalAlignment="Top" Width="377"/>
+        <Button Name="callbutton2" Click="callbutton2_Click" Content="CoinMarket GlobalData" HorizontalAlignment="Left" Margin="1332,509,0,0" VerticalAlignment="Top" Width="205"/>
+        <Button Name="bithumbcheck" Content="지갑조회" HorizontalAlignment="Left" Height="51" Margin="392,504,0,0" VerticalAlignment="Top" Width="135" Click="bithumbcheck_Click"/>
+        <Button Name="bittrexcheck" Click="bittrexcheck_Click" Content="지갑조회" HorizontalAlignment="Left" Margin="392,732,0,0" VerticalAlignment="Top" Width="135" Height="51"/>
+        <Label Name="bithumbwallet" Content="wallet" HorizontalAlignment="Left" Margin="532,506,0,0" VerticalAlignment="Top" Height="206" Width="778"/>
+        <Label Name="bittrexwallet" Content="wallet" HorizontalAlignment="Left" Margin="533,717,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.462,0.538" Height="231" Width="778"/>
+        <Button Name="bithumbTicker" Content="bithumb Ticker" HorizontalAlignment="Left" Margin="1332,534,0,0" VerticalAlignment="Top" Width="205" Click="bithumbTicker_Click"/>
+        <Button Name="bithumborderbook" Content="bithumb orderbook" HorizontalAlignment="Left" Margin="1332,559,0,0" VerticalAlignment="Top" Width="205" Click="bithumborderbook_Click"/>
+        <Button Name="bithumbrecent_transactions" Content="bithumb recent transactions" HorizontalAlignment="Left" Margin="1332,584,0,0" VerticalAlignment="Top" Width="205" Click="bithumbrecent_transactions_Click"/>
+        <Grid HorizontalAlignment="Left" Height="57" Margin="10,560,0,0" VerticalAlignment="Top" Width="377">
+            <RadioButton IsChecked="True" Name="bithumb_buy" Content="구매" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <RadioButton Name="bithumb_sell" Content="판매" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top"/>
+            <ComboBox SelectedIndex="0" Name="bithumb_currency" HorizontalAlignment="Left" Margin="0,34,0,1" Width="86" SelectionChanged="bithumb_currency_SelectionChanged">
+                <ComboBoxItem Content="BTC"></ComboBoxItem>
+                <ComboBoxItem Content="ETH"></ComboBoxItem>
+                <ComboBoxItem Content="DASH"></ComboBoxItem>
+                <ComboBoxItem Content="LTC"></ComboBoxItem>
+                <ComboBoxItem Content="ETC"></ComboBoxItem>
+                <ComboBoxItem Content="XRP"></ComboBoxItem>
+                <ComboBoxItem Content="BCH"></ComboBoxItem>
+                <ComboBoxItem Content="XMR"></ComboBoxItem>
+                <ComboBoxItem Content="ZEC"></ComboBoxItem>
+                <ComboBoxItem Content="QTUM"></ComboBoxItem>
+                <ComboBoxItem Content="BTG"></ComboBoxItem>
+                <ComboBoxItem Content="EOS"></ComboBoxItem>
+            </ComboBox>
+            <TextBox PreviewTextInput="bithumb_price_PreviewTextInput" Name="bithumb_price" Height="23" Margin="99,0,0,0" TextWrapping="Wrap" Text="가격" VerticalAlignment="Top"/>
+            <CheckBox Name="bithumb_SellCheck" Content="구매, 판매 거래완료 내역 리스트 가져오기" HorizontalAlignment="Left" Margin="99,28,0,0" VerticalAlignment="Top"/>
+
+        </Grid>
+        <Button Name="Bithumb_buy_request" Content="요청" HorizontalAlignment="Left" Margin="392,560,0,0" VerticalAlignment="Top" Width="135" Height="57" Click="Bithumb_buy_request_Click"/>
+        <ComboBox SelectedIndex="0" Name="bithumb_ord_currency" HorizontalAlignment="Left" Margin="1542,559,0,0" VerticalAlignment="Top" Width="109" Height="20">
+            <ComboBoxItem Content="BTC"></ComboBoxItem>
+            <ComboBoxItem Content="ETH"></ComboBoxItem>
+            <ComboBoxItem Content="DASH"></ComboBoxItem>
+            <ComboBoxItem Content="LTC"></ComboBoxItem>
+            <ComboBoxItem Content="ETC"></ComboBoxItem>
+            <ComboBoxItem Content="XRP"></ComboBoxItem>
+            <ComboBoxItem Content="BCH"></ComboBoxItem>
+            <ComboBoxItem Content="XMR"></ComboBoxItem>
+            <ComboBoxItem Content="ZEC"></ComboBoxItem>
+            <ComboBoxItem Content="QTUM"></ComboBoxItem>
+            <ComboBoxItem Content="BTG"></ComboBoxItem>
+            <ComboBoxItem Content="EOS"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox SelectedIndex="0" x:Name="bithumb_trans" HorizontalAlignment="Left" Margin="1542,584,0,0" VerticalAlignment="Top" Width="109" Height="20">
+            <ComboBoxItem Content="BTC"/>
+            <ComboBoxItem Content="ETH"/>
+            <ComboBoxItem Content="DASH"/>
+            <ComboBoxItem Content="LTC"/>
+            <ComboBoxItem Content="ETC"/>
+            <ComboBoxItem Content="XRP"/>
+            <ComboBoxItem Content="BCH"/>
+            <ComboBoxItem Content="XMR"/>
+            <ComboBoxItem Content="ZEC"/>
+            <ComboBoxItem Content="QTUM"/>
+            <ComboBoxItem Content="BTG"/>
+            <ComboBoxItem Content="EOS"/>
+        </ComboBox>
+        <Button  Name="bittrex_markethistory" Content="bittrex markethistory" HorizontalAlignment="Left" Margin="1332,609,0,0" VerticalAlignment="Top" Width="140" Click="bittrex_markethistory_Click"/>
+        <Button Name="bittrex_market" Content="bittrex market" HorizontalAlignment="Left" Margin="1332,634,0,0" VerticalAlignment="Top" Width="205" Click="bittrex_market_Click"/>
+        <Button Name="bittrex_marketsummaries" Content="bittrex marketsummaries" HorizontalAlignment="Left" Margin="1332,659,0,0" VerticalAlignment="Top" Width="205" Click="bittrex_marketsummaries_Click"/>
+        <Button Name="bittrex_ticker" Content="bittrex ticker" HorizontalAlignment="Left" Margin="1332,684,0,0" VerticalAlignment="Top" Width="140" Click="bittrex_ticker_Click"/>
+        <Button Name="bittrex_orderbook" Content="bittrex orderbook" HorizontalAlignment="Left" Margin="1332,709,0,0" VerticalAlignment="Top" Width="140" Click="bittrex_orderbook_Click"/>
+        <Label Name="premiumresullt" Content="Label" HorizontalAlignment="Left" Margin="1332,759,0,0" VerticalAlignment="Top" Height="28" Width="205"/>
+        <Button Name="premium" Content="빗썸 - 코인마켓 프리미엄 계산" HorizontalAlignment="Left" Margin="1332,734,0,0" VerticalAlignment="Top" Width="205" Click="premium_Click"/>
+        <ComboBox x:Name="premium_money" SelectedIndex="3" SelectionChanged="premium_money_SelectionChanged" HorizontalAlignment="Left" Margin="1542,734,0,0" VerticalAlignment="Top" Width="109" Height="20">
+            <ComboBoxItem Content="GBP"/>
+            <ComboBoxItem Content="EUR"/>
+            <ComboBoxItem Content="KRW"/>
+            <ComboBoxItem Content="USD"/>
+        </ComboBox>
+        <ComboBox SelectedIndex="0" x:Name="bithumb_currency_ex" HorizontalAlignment="Left" Margin="1542,759,0,0" VerticalAlignment="Top" Width="109">
+            <ComboBoxItem Content="BTC"/>
+            <ComboBoxItem Content="ETH"/>
+            <ComboBoxItem Content="DASH"/>
+            <ComboBoxItem Content="LTC"/>
+            <ComboBoxItem Content="ETC"/>
+            <ComboBoxItem Content="XRP"/>
+            <ComboBoxItem Content="BCH"/>
+            <ComboBoxItem Content="XMR"/>
+            <ComboBoxItem Content="ZEC"/>
+            <ComboBoxItem Content="QTUM"/>
+            <ComboBoxItem Content="BTG"/>
+            <ComboBoxItem Content="EOS"/>
+        </ComboBox>
+        <Grid HorizontalAlignment="Left" Height="57" Margin="10,788,0,0" VerticalAlignment="Top" Width="377">
+            <RadioButton IsChecked="True" x:Name="bittrex_buy" Content="구매" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <RadioButton x:Name="bittrex_sell" Content="판매" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top"/>
+            <ComboBox SelectedIndex="0" x:Name="bittrex_currency1" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" Width="86" SelectionChanged="bittrex_currency1_SelectionChanged">
+                <ComboBoxItem Content="BTC"/>
+                <ComboBoxItem Content="ETH"/>
+                <ComboBoxItem Content="USDT"/>
+            </ComboBox>
+            <TextBox PreviewTextInput="bittrex_quantity_PreviewTextInput" x:Name="bittrex_quantity" HorizontalAlignment="Left" Height="23" Margin="99,0,0,0" TextWrapping="Wrap" Text="수량" VerticalAlignment="Top" Width="129"/>
+            <CheckBox Name="bittrex_sellcheck" Content="구매, 판매 리스트 가져오기" HorizontalAlignment="Left" Margin="200,34,0,0" VerticalAlignment="Top"/>
+            <ComboBox SelectedIndex="0" x:Name="bittrex_currency2" HorizontalAlignment="Left" Margin="91,34,0,0" VerticalAlignment="Top" Width="86" SelectionChanged="bittrex_currency1_SelectionChanged">
+                <ComboBoxItem Content="ETH"/>
+                <ComboBoxItem Content="DASH"/>
+                <ComboBoxItem Content="LTC"/>
+                <ComboBoxItem Content="ETC"/>
+                <ComboBoxItem Content="XRP"/>
+                <ComboBoxItem Content="BCH"/>
+                <ComboBoxItem Content="XMR"/>
+                <ComboBoxItem Content="ZEC"/>
+                <ComboBoxItem Content="QTUM"/>
+                <ComboBoxItem Content="BTG"/>
+                <ComboBoxItem Content="EOS"/>
+            </ComboBox>
+            <TextBox PreviewTextInput="bittrex_rate_PreviewTextInput" Name="bittrex_rate" HorizontalAlignment="Left" Height="23" Margin="243,0,0,0" TextWrapping="Wrap" Text="가격" VerticalAlignment="Top" Width="134"/>
+
+        </Grid>
+        <Button x:Name="bittrex_buy_request" Content="요청" HorizontalAlignment="Left" Margin="392,788,0,0" VerticalAlignment="Top" Width="135" Height="57" Click="bittrex_buy_request_Click"/>
+        <ListView Name="bithumb_tradelist" HorizontalAlignment="Left" Height="82" Margin="10,622,0,0" VerticalAlignment="Top" Width="517">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Name="bittrex_tradelist" HorizontalAlignment="Left" Height="98" Margin="10,850,0,0" VerticalAlignment="Top" Width="517">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="bithumb_krw_deposit" Content="빗썸 가상계좌 입금요청" HorizontalAlignment="Left" Margin="1332,792,0,0" VerticalAlignment="Top" Width="205" Click="bithumb_krw_deposit_Click"/>
+        <Label Name="bithumb_krw_deposit_label" Content="Label" HorizontalAlignment="Left" Margin="1332,817,0,0" VerticalAlignment="Top" Width="205"/>
+        <Label Name="bithumb_balance_coin" Content="빗썸 선택한 화폐 계좌 잔액" HorizontalAlignment="Left" Margin="10,701,0,0" VerticalAlignment="Top" Width="517"/>
+        <ComboBox SelectedIndex="0" x:Name="bittrex_history" HorizontalAlignment="Left" Margin="1542,608,0,0" VerticalAlignment="Top" Width="109" Height="20">
+            <ComboBoxItem Content="ETH"/>
+            <ComboBoxItem Content="DASH"/>
+            <ComboBoxItem Content="LTC"/>
+            <ComboBoxItem Content="ETC"/>
+            <ComboBoxItem Content="XRP"/>
+            <ComboBoxItem Content="BCH"/>
+            <ComboBoxItem Content="XMR"/>
+            <ComboBoxItem Content="ZEC"/>
+            <ComboBoxItem Content="QTUM"/>
+            <ComboBoxItem Content="BTG"/>
+            <ComboBoxItem Content="EOS"/>
+        </ComboBox>
+        <ComboBox SelectedIndex="0" Name="bittrex_ticker_market" HorizontalAlignment="Left" Margin="1542,684,0,0" VerticalAlignment="Top" Width="109" Height="20">
+            <ComboBoxItem Content="ETH"/>
+            <ComboBoxItem Content="DASH"/>
+            <ComboBoxItem Content="LTC"/>
+            <ComboBoxItem Content="ETC"/>
+            <ComboBoxItem Content="XRP"/>
+            <ComboBoxItem Content="BCH"/>
+            <ComboBoxItem Content="XMR"/>
+            <ComboBoxItem Content="ZEC"/>
+            <ComboBoxItem Content="QTUM"/>
+            <ComboBoxItem Content="BTG"/>
+
+        </ComboBox>
+        <ComboBox SelectedIndex="0" x:Name="bittrex_orderbook_curr" HorizontalAlignment="Left" Margin="1542,707,0,0" VerticalAlignment="Top" Width="109" Height="20">
+            <ComboBoxItem Content="ETH"/>
+            <ComboBoxItem Content="DASH"/>
+            <ComboBoxItem Content="LTC"/>
+            <ComboBoxItem Content="ETC"/>
+            <ComboBoxItem Content="XRP"/>
+            <ComboBoxItem Content="BCH"/>
+            <ComboBoxItem Content="XMR"/>
+            <ComboBoxItem Content="ZEC"/>
+            <ComboBoxItem Content="QTUM"/>
+            <ComboBoxItem Content="BTG"/>
+        </ComboBox>
+        <ComboBox SelectedIndex="0" x:Name="bittrex_ticker_market1" HorizontalAlignment="Left" Margin="1477,685,0,0" VerticalAlignment="Top" Width="60" Height="20">
+            <ComboBoxItem Content="BTC"/>
+            <ComboBoxItem Content="ETH"/>
+            <ComboBoxItem Content="USDT"/>
+        </ComboBox>
+        <ComboBox SelectedIndex="0" x:Name="bittrex_orderbook_curr1" HorizontalAlignment="Left" Margin="1477,708,0,0" VerticalAlignment="Top" Width="60" Height="20">
+            <ComboBoxItem Content="BTC"/>
+            <ComboBoxItem Content="ETH"/>
+            <ComboBoxItem Content="USDT"/>
+        </ComboBox>
+        <TextBox Name="bittrex_secret_key" HorizontalAlignment="Left" Height="23" Margin="10,760,0,0" TextWrapping="Wrap" Text="비트렉스 시크릿 키" VerticalAlignment="Top" Width="377"/>
+        <ComboBox SelectedIndex="0" x:Name="bittrex_history1" HorizontalAlignment="Left" Margin="1477,609,0,0" VerticalAlignment="Top" Width="60" Height="20">
+            <ComboBoxItem Content="BTC"/>
+            <ComboBoxItem Content="ETH"/>
+            <ComboBoxItem Content="USDT"/>
+        </ComboBox>
+    </Grid>
+</Window>
